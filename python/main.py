@@ -1,6 +1,5 @@
 import timeit
 import math
-import numpy
 
 from OpenGL.GL import *
 import glfw
