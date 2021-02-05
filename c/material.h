@@ -47,14 +47,12 @@ ray_t material_scatter(material_t material, ray_t ray, vector_t point, vector_t 
                 unit = vector_mul_vf(unit, -1.0f);
             }
 
-            vector_t direction = vector_add_vv(normal, unit);
+            vector_t direction = vector_add_vv(vector_mul_vf(unit, material.blur), vector_sub_vv(vector_sub_vv(ray.direction, ray.origin), vector_mul_vf(normal, 2.0f * vector_dot(vector_sub_vv(ray.direction, ray.origin), normal))));
 
             // prevent the ray from being absorved
             if (vector_length(direction) < 0.001f) {
                 direction = normal;
             }
-
-            direction = vector_add_vv(vector_mul_vf(unit, material.blur), vector_sub_vv(vector_sub_vv(ray.direction, ray.origin), vector_mul_vf(normal, 2.0f * vector_dot(vector_sub_vv(ray.direction, ray.origin), normal))));
 
             return (ray_t) {
                 .origin = point,
