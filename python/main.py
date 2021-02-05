@@ -132,6 +132,9 @@ if __name__ == "__main__":
             self.window_title = "Playing with RT - frame: {frame:d} in {ms:.2f}ms ({fps:.2f} fps)\n".format(frame = self.frame_count, ms = 1000.0 * self.frame_time, fps = 1.0 / self.frame_time)
             glfw.set_window_title(window, self.window_title)
 
+        self.world[0].center.z += -0.1 * self.frame_time
+        self.world[1].center.z += -0.05 * self.frame_time
+
         # start all threads
         for i in self.threads:
             i.start()

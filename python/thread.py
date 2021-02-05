@@ -35,7 +35,7 @@ class Thread:
         for pixel in range(self.id, self.image_width * self.image_height, self.size):
             # since image is a 1d array, convert the index to x and y positions
             x = pixel % self.image_width
-            y = pixel // self.image_height
+            y = pixel // self.image_width
 
             # starts with a black pixel
             color = Color(
@@ -48,7 +48,7 @@ class Thread:
             for sample in range(0, self.samples):
                 # generate a random offset for x and y
                 i = (x + seed.rng(0.0, 1.0)) / (self.image_width - 1)
-                j = (self.image_height + seed.rng(0.0, 1.0) - y - 1) / self.image_height
+                j = (self.image_height + seed.rng(0.0, 1.0) - (y - 1)) / self.image_height
 
                 # create a ray based on these offsets
                 ray = self.camera.ray(i, j)
