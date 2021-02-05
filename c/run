@@ -1,0 +1,4 @@
+#!/bin/bash
+
+# run without vsync
+vblank_mode=0 __GL_SYNC_TO_VBLANK=0 ./pwrt

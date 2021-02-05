@@ -1,0 +1,12 @@
+#!/bin/bash
+
+gcc ./main.c \
+    `# -I/opt/cuda/targets/x86_64-linux/include -DUSE_OPENCL=1` \
+    -Wall \
+    -march=native \
+    -Ofast \
+    -lm \
+    -lpthread \
+    -lOpenCL \
+    -lGL -lGLU -lglfw -lrt -ldl -lX11 -lxcb -lXau \
+-o ./pwrt
