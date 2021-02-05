@@ -21,8 +21,8 @@ if __name__ == "__main__":
     self = Data()
 
     self.window_title = "Playing with RT"
-    self.image_width = 720
-    self.image_height = 480
+    self.image_width = 512
+    self.image_height = 256
     self.image = list(range(self.image_width * self.image_height * 3))
     self.camera = Camera(
         2.0 * self.image_width / self.image_height,
@@ -128,6 +128,10 @@ if __name__ == "__main__":
     while not glfw.window_should_close(window):
         frame_start = Moment()
 
+        if self.frame_count > 0:
+            self.window_title = "Playing with RT - frame: {frame:d} in {ms:.2f}ms ({fps:.2f} fps)\n".format(frame = self.frame_count, ms = 1000.0 * self.frame_time, fps = 1.0 / self.frame_time)
+            glfw.set_window_title(window, self.window_title)
+
         # start all threads
         for i in self.threads:
             i.start()
@@ -159,7 +163,7 @@ if __name__ == "__main__":
         glfw.swap_buffers(window)
         glfw.poll_events()
 
-        frame_time = Moment().difference(frame_start)
-        print(frame_time)
+        self.frame_time = Moment().difference(frame_start)
+        self.frame_count += 1
 
     glfw.terminate()

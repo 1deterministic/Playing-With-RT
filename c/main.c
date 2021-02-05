@@ -46,8 +46,8 @@ int main(int argc, char** argv) {
     snprintf(self.window_title, GLFW_WINDOW_TITLE_SIZE, "Playing with RT");
 
     // image as a 1d array
-    self.image_width = 640;
-    self.image_height = 360;
+    self.image_width = 512;
+    self.image_height = 256;
     self.image = malloc(self.image_width * self.image_height * sizeof(color_t));
     if (self.image == NULL) {
         return 1;
@@ -319,7 +319,7 @@ int main(int argc, char** argv) {
         moment_t frame_start = moment_now();
 
         if (self.frame_count > 0) {
-            snprintf(self.window_title, GLFW_WINDOW_TITLE_SIZE, "Playing with RT - frame: %d in %.2fms (%.2f fps)\n", self.frame_count, self.frame_time, 1.0f / self.frame_time);
+            snprintf(self.window_title, GLFW_WINDOW_TITLE_SIZE, "Playing with RT - frame: %d in %.2fms (%.2f fps)", self.frame_count, 1000.0f * self.frame_time, 1.0f / self.frame_time);
             glfwSetWindowTitle(window, self.window_title);
         }
 
