@@ -212,7 +212,7 @@ int main(int argc, char** argv) {
         }, 1, &self.opencl.devices[self.opencl.platform][self.opencl.device], NULL, NULL, &self.opencl.error);
 
         // create command queue
-        self.opencl.command_queue = clCreateCommandQueue(self.opencl.context, self.opencl.devices[self.opencl.platform][self.opencl.device], 0, &self.opencl.error);
+        self.opencl.command_queue = clCreateCommandQueueWithProperties(self.opencl.context, self.opencl.devices[self.opencl.platform][self.opencl.device], (cl_queue_properties[]) {}, &self.opencl.error);
 
         // create and compile program
         self.opencl.program = clCreateProgramWithSource(self.opencl.context, 1, (const char*[]) {

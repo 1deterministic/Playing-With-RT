@@ -2,6 +2,9 @@
 
 gcc ./main.c \
     `# -I/opt/cuda/targets/x86_64-linux/include -DUSE_OPENCL=1` \
+    -DUSE_OPENCL=1 -DCL_TARGET_OPENCL_VERSION=300 \
+    -I./include \
+    -L./lib \
     -Wall \
     -march=native \
     -Ofast \
