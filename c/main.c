@@ -7,7 +7,6 @@
 #include <time.h>
 #include <sys/sysinfo.h>
 #include <GL/gl.h>
-#include <GL/glu.h>
 #include <GLFW/glfw3.h>
 
 #if USE_OPENCL

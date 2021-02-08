@@ -10,7 +10,6 @@ libs=(
     "-lm"
     "-lpthread"
     "-lGL"
-    "-lGLU"
     "-lglfw"
     "-lrt"
     "-ldl"
