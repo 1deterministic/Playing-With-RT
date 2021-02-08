@@ -1,8 +1,4 @@
 # c
-c/bin/
-c/include/
-c/lib/
-c/lib64/
 c/pwrt
 
 # python
@@ -10,4 +6,5 @@ python/bin/
 python/include/
 python/lib/
 python/lib64
+python/__pycache__/
 python/pyvenv.cfg

@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# glfw is the only requirement to run with pthreads
+pacman -Syu glfw-x11
+
+# to use opencl you will need to install the header files as well as an opencl platform to run with
+# pacman -Syu opencl-headers
+
+# install this to run on intel gpus (broadwell [5th gen] or newer)
+# pacman -S intel-compute-runtime
+
+# install this to run on amd gpus using the open-source amdgpu driver
+# pacman -Syu opencl-mesa
+
+# install this to run on nvidia gpus using the proprietary driver (nouveau is not supported afaik)
+# pacman -Syu opencl-nvidia
+
+# pocl is a cpu-based opencl platform that will run on any system but won't yield any gpu improvements, I use it just for testing purposes - it's also slower than not using opencl at all
+# pacman -Syu pocl

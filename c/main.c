@@ -36,18 +36,18 @@
 int main(int argc, char** argv) {
     data_t self = {0};
 
-    self.depth = 8;
-    self.samples = 2;
+    self.depth = 16;
+    self.samples = 4;
 
     self.window_title = malloc(GLFW_WINDOW_TITLE_SIZE * sizeof(char));
     if (self.window_title == NULL) {
         return 1;
     }
-    snprintf(self.window_title, GLFW_WINDOW_TITLE_SIZE, "Playing with RT");
+    snprintf(self.window_title, GLFW_WINDOW_TITLE_SIZE, "Playing With RT");
 
     // image as a 1d array
-    self.image_width = 512;
-    self.image_height = 256;
+    self.image_width = 1280;
+    self.image_height = 720;
     self.image = malloc(self.image_width * self.image_height * sizeof(color_t));
     if (self.image == NULL) {
         return 1;

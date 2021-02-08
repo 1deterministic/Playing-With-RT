@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# setup a virtual environment here
+python -m venv .
+
+# activate virtual environment
+source ./bin/activate
+
+# install dependencies
+pip install glfw pyopengl

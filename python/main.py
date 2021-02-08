@@ -20,9 +20,9 @@ from input import *
 if __name__ == "__main__":
     self = Data()
 
-    self.window_title = "Playing with RT"
-    self.image_width = 512
-    self.image_height = 256
+    self.window_title = "Playing With RT"
+    self.image_width = 1280
+    self.image_height = 720
     self.image = list(range(self.image_width * self.image_height * 3))
     self.camera = Camera(
         2.0 * self.image_width / self.image_height,
@@ -93,11 +93,11 @@ if __name__ == "__main__":
             1000.0
         )
     ]
-    self.depth = 4
-    self.samples = 1
+    self.depth = 16
+    self.samples = 4
     self.frame_count = 0
     self.frame_time = 0
-    self.threads_size = 8
+    self.threads_size = 1
     self.threads = []
 
     for i in range(0, self.threads_size):

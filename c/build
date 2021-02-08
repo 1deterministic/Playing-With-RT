@@ -1,15 +1,28 @@
 #!/bin/bash
 
-gcc ./main.c \
-    `# -I/opt/cuda/targets/x86_64-linux/include -DUSE_OPENCL=1` \
-    -DUSE_OPENCL=1 -DCL_TARGET_OPENCL_VERSION=300 \
-    -I./include \
-    -L./lib \
-    -Wall \
-    -march=native \
-    -Ofast \
-    -lm \
-    -lpthread \
-    -lOpenCL \
-    -lGL -lGLU -lglfw -lrt -ldl -lX11 -lxcb -lXau \
--o ./pwrt
+flags=(
+    "-Ofast" 
+    "-march=native" 
+    "-Wall"
+)
+
+libs=(
+    "-lm"
+    "-lpthread"
+    "-lGL"
+    "-lGLU"
+    "-lglfw"
+    "-lrt"
+    "-ldl"
+    "-lX11"
+    "-lxcb"
+    "-lXau"
+)
+
+opencl=(
+    "-DUSE_OPENCL=1" 
+    "-DCL_TARGET_OPENCL_VERSION=300" 
+    "-lOpenCL"
+)
+
+gcc "./main.c" -o "./pwrt" "${flags[@]}" "${libs[@]}" # "${opencl[@]}"
